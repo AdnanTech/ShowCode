@@ -1,14 +1,22 @@
-import math
-def is_fibonacci(input):
-  phi = 0.5 + 0.5 * math.sqrt(5.0)
-  a = phi * input
+def maximum_product(input):
+ 
+  # edge case 
+  if (input == 1):
+     return 0
 
-
-  if(input >= 0 and input <= 2147483647 and (input % 1) == 0):  
-    return input == 0 or abs(round(a) - a) < 1.0 / input   
-  else:
-    return False
+   # n equals to 2 or 3 must be handled explicitly
+  if (input == 2 or input == 3):
+     return (input - 1)
+   
+  # keep removing parts of size 3 while n is greater than 4
+  product = 1
+  while (input > 4):
+    input -= 3
+    product *= 3 # Keep multiplying 3 to product
+    
+  return (input * product) # The last part multiplied by previous parts
+ 
 
 if __name__=='__main__':
-    input = 0
-    print("Fib: ", is_fibonacci(input))
+  input = 8
+  print("Maximum Product is", maximum_product(input))

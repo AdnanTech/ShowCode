@@ -9,12 +9,12 @@ def maximum_product(input):
      return (input - 1)
    
   # keep removing parts of size 3 while n is greater than 4
-  temp = 1
+  product = 1
   while (input > 4):
     input -= 3
-    temp *= 3 # Keep multiplying 3 to temp
+    product *= 3 # Keep multiplying 3 to product
     
-  return (input * temp) # The last part multiplied by previous parts
+  return (input * product) # The last part multiplied by previous parts
  
 
 if __name__=='__main__':
